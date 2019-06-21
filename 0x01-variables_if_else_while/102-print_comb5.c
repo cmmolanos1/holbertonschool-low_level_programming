@@ -8,10 +8,7 @@
  */
 int main(void)
 {
-	int i;
-	int j;
-	int k;
-	int l;
+	int i, j, k, l;
 
 	for (i = '0'; i <= '9'; i++)
 	{
@@ -35,13 +32,12 @@ int main(void)
 					putchar(32);
 					putchar(k);
 					putchar(l);
-					
 					if (i == '9' && j == '8' && k == '9' && l == '9')
 					{
 						putchar('\n');
 					}
 					else
-					{	
+					{
 						putchar(44);
 						putchar(32);
 					}
