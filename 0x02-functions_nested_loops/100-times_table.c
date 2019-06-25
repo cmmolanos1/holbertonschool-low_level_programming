@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
 /**
  * print_times_table - print the time tables
  *@n: the tested number
