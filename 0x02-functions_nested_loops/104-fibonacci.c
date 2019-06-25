@@ -2,7 +2,7 @@
 /**
  * main - the 98 first fibonaccis
  *
- *
+ * numbers fibo = fiboB|fiboA f1 = f1b|f1a f2 = f2b|f2a
  * Return: 0 success
  */
 int main(void)
@@ -20,29 +20,26 @@ int main(void)
 	{
 		fiboA = (f1a + f2a) % 1000000000;
 		carry = (f1a + f2a) / 1000000000;
-
 		fiboB = f1b + f2b + carry;
-
 		f2a = f1a;
 		f2b = f1b;
-
 		f1a = fiboA;
 		f1b = fiboB;
-
-		if (n < 98)
+		if (n > 58)
 		{
-			if (fiboB == 0)
+			if (n < 98)
 			{
-				printf("%ld, ", fiboA); }
+				printf("%ld%09ld, ", fiboB, fiboA);
+			}
 			else
 			{
-				printf("%ld%ld, ", fiboB, fiboA); } }
+				printf("%ld%09ld\n", fiboB, fiboA);
+			}
+		}
 		else
 		{
-			if (fiboB == 0)
-			{ printf("%ld\n", fiboA);	}
-			else
-			{ printf("%ld%ld\n", fiboB, fiboA); } }
+			printf("%ld%ld, ", fiboB, fiboA);
+		}
 	}
 	return (0);
 }
