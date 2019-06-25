@@ -41,10 +41,9 @@ void print_times_table(int n)
 				}
 				_putchar(units + '0');
 				if (k == n)
-				{
 					_putchar('\n');
-				}
 			}
 		}
 	}
+	return (0);
 }
