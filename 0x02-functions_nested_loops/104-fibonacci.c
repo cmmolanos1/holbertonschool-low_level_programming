@@ -12,7 +12,6 @@ int main(void)
 	f1 = 2;
 	f1a = f1 % 1000000000;
 	f1b = f1 / 1000000000;
-
 	f2 = 1;
 	f2a = f2 % 1000000000;
 	f2b = f2 / 1000000000;
@@ -32,12 +31,18 @@ int main(void)
 
 		if (n < 98)
 		{
-			printf("%ld%ld, ", fiboB, fiboA);
-		}
+			if (fiboB == 0)
+			{
+				printf("%ld, ", fiboA); }
+			else
+			{
+				printf("%ld%ld, ", fiboB, fiboA); } }
 		else
 		{
-			printf("%ld%ld\n", fiboB, fiboA);
-		}
+			if (fiboB == 0)
+			{ printf("%ld\n", fiboA);	}
+			else
+			{ printf("%ld%ld\n", fiboB, fiboA); } }
 	}
 	return (0);
 }
