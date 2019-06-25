@@ -40,12 +40,10 @@ int main(void)
 		{
 			if (fiboB == 0)
 			{
-				printf("%ld, ", fiboA);
-			}
+				printf("%ld, ", fiboA);	}
 			else
 			{
-			printf("%ld%ld, ", fiboB, fiboA);
-			}
+			printf("%ld%ld, ", fiboB, fiboA); }
 		}
 	}
 	return (0);
