@@ -7,25 +7,37 @@
  */
 int main(void)
 {
-	int i;
-	double fibo = 0;
-	double fn_1 = 1;
-	double fn_2 = 0;
+	long int fiboA, fiboB, f1, f2, n, f1a, f1b, f2a, f2b, carry;
 
-	for (i = 1; i <= 98; i++)
+	f1 = 2;
+	f1a = f1 % 1000000000;
+	f1b = f1 / 1000000000;
+
+	f2 = 1;
+	f2a = f2 % 1000000000;
+	f2b = f2 / 1000000000;
+	printf("%ld, %ld, ", f2, f1);
+	for (n = 3; n <= 98; n++)
 	{
-		fibo = fn_1 + fn_2;
-		fn_2 = fn_1;
-		fn_1 = fibo;
-		if (i < 98)
+		fiboA = (f1a + f2a) % 1000000000;
+		carry = (f1a + f2a) / 1000000000;
+
+		fiboB = f1b + f2b + carry;
+
+		f2a = f1a;
+		f2b = f1b;
+
+		f1a = fiboA;
+		f1b = fiboB;
+
+		if (n < 98)
 		{
-			printf("%.0lf, ", fibo);
+			printf("%ld%ld, ", fiboB, fiboA);
 		}
 		else
 		{
-			printf("%.0lf", fibo);
+			printf("%ld%ld\n", fiboB, fiboA);
 		}
 	}
-	printf("\n");
 	return (0);
 }
