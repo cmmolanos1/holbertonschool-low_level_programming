@@ -30,20 +30,16 @@ void print_times_table(int n)
 
 					if (num > 99)
 					{
-						_putchar('0' + cents);
-					}
+						_putchar('0' + cents); }
 					else
 					{
-						_putchar(' ');
-					}
+						_putchar(' '); }
 					if (num > 9)
 					{
-						_putchar('0' + tens);
-					}
+						_putchar('0' + tens); }
 					else
 					{
-						_putchar(' ');
-					}
+						_putchar(' '); }
 					_putchar('0' + units);
 					if (k == n)
 						_putchar('\n');
