@@ -6,9 +6,10 @@
  */
 void print_number(int n)
 {
-	int i, j, digits, numchar, power;
+	int i, j, temp, digits, numchar, power;
 
-	digits = numDigits(n);
+	temp = n;
+	digits = numDigits(temp);
 
 	power = 1;
 
@@ -17,10 +18,10 @@ void print_number(int n)
 		power = power * 10;
 	}
 
-	if (n < 0)
+	if (temp < 0)
 	{
 		_putchar('-');
-		n = -n;
+		temp = -temp;
 	}
 	else
 	{
@@ -28,7 +29,7 @@ void print_number(int n)
 	}
 	for (j = power; j >= 1; j = j / 10)
 	{
-		numchar = (n / j) % 10;
+		numchar = (temp / j) % 10;
 		_putchar(numchar + '0');
 	}
 }
