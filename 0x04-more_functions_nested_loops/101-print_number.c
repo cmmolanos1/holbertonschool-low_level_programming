@@ -28,11 +28,12 @@ void print_number(int n)
 		power = power * 10;
 		i++;
 	}
-
-	for (j = power; j >= 1; j = j / 10)
+	j = power;
+	while (j >= 1)
 	{
 		numchar = (temp / j) % 10;
 		_putchar(numchar + '0');
+		j = j / 10;
 	}
 }
 /**
