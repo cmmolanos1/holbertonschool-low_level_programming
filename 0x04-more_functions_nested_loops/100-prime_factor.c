@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include "holberton.h"
 /**
  * main - prints the biggest prime factor of a number.
@@ -12,7 +11,7 @@ int main(void)
 
 	number = 612852475143;
 
-	if (isPrime(number))
+	if (isPrime(number) == 1)
 	{
 		printf("%ld\n", number);
 	}
@@ -27,17 +26,17 @@ int main(void)
  * @n: number to check
  * Return: true if it is prime false if not
  */
-bool isPrime(long int n)
+int isPrime(long int n)
 {
 	int i;
 
 	if (n <= 1)
 	{
-		return (false);
+		return (0);
 	}
 	else if (n == 2)
 	{
-		return (true);
+		return (1);
 	}
 	else
 	{
@@ -45,10 +44,10 @@ bool isPrime(long int n)
 		{
 			if (n % i == 0)
 			{
-				return (false);
+				return (0);
 			}
 		}
-	return (true);
+	return (1);
 	}
 }
 /**
@@ -63,13 +62,13 @@ long int biggestFactor(long int a)
 	factor = a;
 	for (i = 2; i <= factor; i++)
 	{
-		if (isPrime(factor))
+		if (isPrime(factor) == 1)
 		{
 			break;
 		}
 		else
 		{
-			if ((factor % i == 0) && isPrime(i))
+			if ((factor % i == 0) && (isPrime(i) == 1))
 			{
 				factor = factor / i;
 				continue;

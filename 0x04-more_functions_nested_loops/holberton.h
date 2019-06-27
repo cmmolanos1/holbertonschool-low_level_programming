@@ -1,6 +1,5 @@
 #ifndef INV_HOLBERTON_H
 #define INV_HOLBERTON_H
-#define bool int
 
 int _putchar(char c);
 
@@ -24,7 +23,7 @@ void print_square(int size);
 
 void print_triangle(int size);
 
-bool isPrime(long int n);
+int isPrime(long int n);
 
 long int biggestFactor(long int a);
 #endif
