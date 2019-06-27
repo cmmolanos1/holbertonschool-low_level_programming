@@ -15,7 +15,7 @@ void print_number(int n)
 	if (temp < 0)
 	{
 		_putchar('-');
-		temp = (temp - 2 * temp);
+		temp = -temp;
 	}
 	
 	for (i = 1; i < digits; i++)
