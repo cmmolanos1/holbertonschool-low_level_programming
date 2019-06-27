@@ -6,9 +6,18 @@
  */
 void print_number(int n)
 {
-	int i, j, temp, digits, numchar, power;
+	int i, j, digits, power;
+	unsigned int temp, numchar;
 
-	temp = n;
+	if (n < 0)
+	{
+		_putchar('-');
+		temp = -n;
+	}
+	else
+	{
+		temp = n;
+	}
 	digits = numDigits(temp);
 
 	power = 1;
@@ -18,15 +27,6 @@ void print_number(int n)
 		power = power * 10;
 	}
 
-	if (temp < 0)
-	{
-		_putchar('-');
-		temp = -temp;
-	}
-	else
-	{
-		;
-	}
 	for (j = power; j >= 1; j = j / 10)
 	{
 		numchar = (temp / j) % 10;
