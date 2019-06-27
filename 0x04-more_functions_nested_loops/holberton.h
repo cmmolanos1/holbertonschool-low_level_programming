@@ -1,5 +1,6 @@
 #ifndef INV_HOLBERTON_H
 #define INV_HOLBERTON_H
+#define bool int
 
 int _putchar(char c);
 
