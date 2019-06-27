@@ -6,9 +6,10 @@
  */
 void print_number(int n)
 {
-	int i, j, digits, power;
-	unsigned int temp, numchar;
+	int i, j, digit, digits, power;
+	unsigned int temp, numchar, number;
 
+	digit = 0;
 	if (n < 0)
 	{
 		_putchar('-');
@@ -18,8 +19,15 @@ void print_number(int n)
 	{
 		temp = n;
 	}
-	digits = numDigits(temp);
 
+	number = temp;
+
+	while (number >= 10)
+	{
+		number = number / 10;
+		digit++;
+	}
+	digits = digit + 1;
 	power = 1;
 	i = 1;
 
@@ -35,27 +43,4 @@ void print_number(int n)
 		_putchar(numchar + '0');
 		j = j / 10;
 	}
-}
-/**
- * numDigits - show the number or digits
- * @a: number to check
- * Return: number of digits
- */
-int numDigits(int a)
-{
-	int digit;
-	int number;
-
-	digit = 0;
-	if (a < 0)
-	{
-		a = -a;
-		}
-	number = a;
-		while (number >= 10)
-		{
-			number = number / 10;
-			digit++;
-		}
-		return (digit + 1);
 }
