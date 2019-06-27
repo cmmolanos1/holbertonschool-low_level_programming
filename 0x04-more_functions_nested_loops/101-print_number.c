@@ -21,10 +21,12 @@ void print_number(int n)
 	digits = numDigits(temp);
 
 	power = 1;
+	i = 1;
 
-	for (i = 1; i < digits; i++)
+	while (i < digits)
 	{
 		power = power * 10;
+		i++;
 	}
 
 	for (j = power; j >= 1; j = j / 10)
