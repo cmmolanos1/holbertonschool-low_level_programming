@@ -9,20 +9,24 @@ void print_number(int n)
 	int i, j, temp, digits, numchar, power;
 
 	temp = n;
-	power = 1;
 	digits = numDigits(temp);
+
+	power = 1;
+
+	for (i = 1; i < digits; i++)
+	{
+		power = power * 10;
+	}
 
 	if (temp < 0)
 	{
 		_putchar('-');
 		temp = -temp;
 	}
-	
-	for (i = 1; i < digits; i++)
+	else
 	{
-		power = power * 10;
+		;
 	}
-
 	for (j = power; j >= 1; j = j / 10)
 	{
 		numchar = (temp / j) % 10;
