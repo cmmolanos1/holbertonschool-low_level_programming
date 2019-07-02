@@ -8,10 +8,9 @@
 int _atoi(char *s)
 {
 	int counter, i, j, k, length, num, l;
-	int aux, aux2;
+	int aux;
 
 	aux = 1;
-	aux2 = 1;
 	counter = 0;
 	num = 0;
 
@@ -26,9 +25,9 @@ int _atoi(char *s)
 	{
 		if (!(*(s + j) <= '9' && *(s + j) >= '0'))
 			break;
-		aux2 = aux2 * 10;
+		
 	}
-	aux2 = aux2 / 10;
+
 	for (k = 0; k < i; k++)
 	{
 		if (*(s + k) == '-')
@@ -38,10 +37,9 @@ int _atoi(char *s)
 	l = i;
 		while (length >= 1)
 	{
-		num = num + ((*(s + l) - '0') * aux2);
+		num = num*10 + (*(s + l) - '0');
 		l++;
 		length--;
-		aux2 = aux2 / 10;
 	}
 	return (num * aux);
 }
