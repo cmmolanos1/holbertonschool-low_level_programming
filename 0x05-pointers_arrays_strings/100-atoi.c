@@ -25,7 +25,6 @@ int _atoi(char *s)
 	{
 		if (!(*(s + j) <= '9' && *(s + j) >= '0'))
 			break;
-		
 	}
 
 	for (k = 0; k < i; k++)
@@ -37,7 +36,7 @@ int _atoi(char *s)
 	l = i;
 		while (length >= 1)
 	{
-		num = num*10 + (*(s + l) - '0');
+		num = num * 10 + (*(s + l) - '0');
 		l++;
 		length--;
 	}
