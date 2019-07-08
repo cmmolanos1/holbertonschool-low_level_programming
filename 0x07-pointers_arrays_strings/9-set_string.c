@@ -1,13 +1,13 @@
 #include "holberton.h"
 #include <stdio.h>
 /**
- * set_string - print additions of the two diagonals.
- * @a: source matrix
- * @size: size NxN of matrix
+ * set_string - redirect.
+ * @s: double pointer to address
+ * @to: the original pointer
  *
  * Return: chessboard.
  */
 void set_string(char **s, char *to)
 {
-	*s = to;	
+	*s = to;
 }
