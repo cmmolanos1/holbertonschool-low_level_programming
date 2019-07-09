@@ -8,13 +8,12 @@
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	if (n >= 98)
-		n = 97;
-	while (n > 0)
+	unsigned int i = 0;
+
+	while (i < n)
 	{
-		*s = b;
-		s++;
-		n--;
+		*(s + i) = b;
+		i++;
 	}
 	return (s);
 }
