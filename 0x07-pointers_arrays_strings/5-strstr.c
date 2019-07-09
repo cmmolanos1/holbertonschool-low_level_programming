@@ -12,14 +12,17 @@ char *_strstr(char *haystack, char *needle)
 	{
 		if (*haystack == *needle && coincidence(haystack, needle) == 1)
 		{
-			return (haystack);
+			break;
 		}
 		else
 		{
 			haystack++;
 		}
 	}
-	return (0);
+	if (haystack != '\0')
+		return (haystack);
+	else
+		return (0);
 }
 /**
  * coincidence - define if the string b is inside a.
