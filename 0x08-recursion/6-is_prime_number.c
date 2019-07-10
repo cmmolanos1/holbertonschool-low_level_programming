@@ -1,10 +1,10 @@
 #include "holberton.h"
 /**
- * _sqrt_recursion - return the sqrt of a natural number.
+ * is_prime_number - return the sqrt of a natural number.
  * @n: natural number
  *
  *
- * Return: sqrt 0 if sqrt is not natural.
+ * Return: 1 if is prime otherwise 0.
  */
 int is_prime_number(int n)
 {
