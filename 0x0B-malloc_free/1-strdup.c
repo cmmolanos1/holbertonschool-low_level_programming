@@ -12,8 +12,8 @@ char *_strdup(char *str)
 {
 	int strSize, i;
 	char *copyStr;
+
 	strSize = 0;
-	
 	if (str == NULL)
 		return (NULL);
 	while (*(str + strSize))
