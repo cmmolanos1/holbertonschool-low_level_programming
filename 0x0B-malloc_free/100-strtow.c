@@ -2,13 +2,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * numWords - counts the numbers o words in the string
+ * countWords - counts the numbers o words in the string
  * @str: source string
  *
  *
  * Return: the number of words.
  */
-int numWords(char *str)
+int countWords(char *str)
 {
 	int words;
 
@@ -28,13 +28,13 @@ int numWords(char *str)
 	return (words);
 }
 /**
- * numChars - counts the numbers o characters in a string
+ * countChars - counts the numbers o characters in a string
  * @str: source string
  *
  *
  * Return: the number of words.
  */
-int numChars(char *str)
+int countChars(char *str)
 {
 	int chars;
 
@@ -61,39 +61,40 @@ int numChars(char *str)
  */
 char **strtow(char *str)
 {
-	int numberWords, i;
+	int numWords, numChars, i, j;
 	char **words;
 
-	numberWords = 0;
-	if (str == NULL || str == "")
+	if (str == NULL || *str == '\0')
 		return (NULL);
 
-	numberWords = (numWord(*str));
-	words = (char **) malloc((numberWords + 1) * sizeof(char *));
+	numWords = (countWords(str));
+	words = (char **) malloc((numWords + 1) * sizeof(char *));
 	if (words == NULL)
 	{
 		free(words);
 		return (NULL);
 	}
+	*(words + numWords + 1) = NULL;
 
-	while (i < numberWords)
+	while (i < numWords)
 	{
 		if (*str == ' ')
 			str++;
 		else
 		{
-			*(words + i) = (int *) malloc((numChars(str) + 1) * sizeof(char));
+			numChars = countChars(str);
+			*(words + i) = (char *) malloc((numChars + 1) * sizeof(char));
 			if (*(words + i) == NULL)
 			{
 				for (j = 0; j < i; j++)
 					free(*(words + j));
 				free(words);
 			}
+			for (j = 0; j < numChars; j++)
+				*(*(words + i) + j) = *str;
+			*(*(words + i) + j) = '\0';
 			i++;
-			str = str + numChars(str);
 		}
 	}
-
-	fillMatriz(str, words, numberWords);
 	return (words);
 }
