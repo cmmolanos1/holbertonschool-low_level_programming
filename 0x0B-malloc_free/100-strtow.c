@@ -69,8 +69,10 @@ char **strtow(char *str)
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	numWords = countWords(str);
+	if (numWords == 0)
+		return (NULL);
 	words = (char **) malloc((numWords + 1) * sizeof(char *));
-	if (words == 0)
+	if (words == NULL)
 	{
 		free(words);
 		return (NULL);
@@ -93,11 +95,9 @@ char **strtow(char *str)
 			for (j = 0; j < numChars; j++)
 			{
 				*(*(words + i) + j) = *str;
-				str++;
-			}
+				str++; }
 			*(*(words + i) + j) = '\0';
-			i++;
-		}
+			i++; }
 	}
 	*(words + numWords) = NULL;
 	return (words);
