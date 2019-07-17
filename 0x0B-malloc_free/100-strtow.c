@@ -97,14 +97,3 @@ char **strtow(char *str)
 	fillMatriz(str, words, numberWords);
 	return (words);
 }
-/**
-* int main(void)
-*  {
-*	char *s;
-*
-*	s = "Holberton School #cisfun";
-*	printf("%d\n", numWords(s));
-*	printf("%d\n", numChars(s+10));
-*	return (0);
-*	}
-*/
