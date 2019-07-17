@@ -99,6 +99,6 @@ char **strtow(char *str)
 			i++;
 		}
 	}
-	*(words + i) = NULL;
+	*(words + numWords) = NULL;
 	return (words);
 }
