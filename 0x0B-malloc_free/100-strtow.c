@@ -65,7 +65,6 @@ char **strtow(char *str)
 	char **words;
 
 	i = 0;
-
 	if (str == NULL || *str == '\0')
 		return (NULL);
 	numWords = countWords(str);
@@ -97,7 +96,8 @@ char **strtow(char *str)
 				*(*(words + i) + j) = *str;
 				str++; }
 			*(*(words + i) + j) = '\0';
-			i++; }
+			i++;
+		}
 	}
 	*(words + numWords) = NULL;
 	return (words);
