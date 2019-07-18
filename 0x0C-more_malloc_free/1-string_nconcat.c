@@ -26,8 +26,9 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s1Size++;
 	while (*(s2 + s2Size))
 		s2Size++;
+
 	if (n >= s2Size)
-		nSize = s2Size; /*add 1 space to print null*/
+		nSize = s2Size;
 	else
 		nSize = n;
 
@@ -37,7 +38,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 
 	for (i = 0; i < s1Size; i++)
 		*(conStr + i) = *(s1 + i);
-	
 	for (i = s1Size; i < (s1Size + nSize); i++)
 		*(conStr + i) = *(s2 + i - s1Size);
 	*(conStr + i) = '\0';
