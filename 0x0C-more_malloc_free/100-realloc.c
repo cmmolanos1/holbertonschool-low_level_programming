@@ -29,6 +29,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	for (i = 0; i < new_size; i++)
 		*(reallocated + i) = *(ptrCast + i);
 
-	free (ptr);
+	free(ptr);
 	return (reallocated);
 }
