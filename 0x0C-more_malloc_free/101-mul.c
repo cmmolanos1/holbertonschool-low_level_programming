@@ -68,23 +68,16 @@ int _atoi(char *s)
  */
 int main(int argc, char **argv)
 {
-	int size1 = 0, size2 = 0, length;
-	char *result;
-	
+	unsigned long int mul;
+
 	if (argc != 3 || allDigits(argv) != 1)
 	{
 		puts("Error");
 		exit(98);
 	}
 
-/*	while (argv[1][size1])
-		size1++;
-	while (argv[2][size2])
-		size2++;
-	length = size1 + size2 + 1; /* add 1 to print null*/
+	mul = _atoi(argv[1]) * _atoi(argv[2]);
 
-	
-
-	
+	printf("%lu\n", mul);
 	return (0);
 }
