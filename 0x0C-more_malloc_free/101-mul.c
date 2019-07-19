@@ -72,36 +72,37 @@ int main(int argc, char **argv)
 	int i, j, carry, len;
 	char *s1 = argv[1];
 	char *s2 = argv[2];
-	int l1 = 0;
-	int l2 = 0;
+	int len_s1 = 0;
+	int len_s2 = 0;
 	int *a, *b, *ans;
 
 	if (argc != 3 || allDigits(argv) != 1)
 		Error();
-	while (argv[1][l1])
-		l1++;
-	while (argv[2][l2])
-		l2++;
-	len = l1 + l2;
-	a = (int *) malloc(l1 * sizeof(int));
-	b = (int *) malloc(l2 * sizeof(int));
+	if (*s1 == '0' || *s2 == 0)
+		_putchar('0');
+	while (argv[1][len_s1])
+		len_s1++;
+	while (argv[2][len_s2])
+		len_s2++;
+	len = len_s1 + len_s2;
+	a = (int *) malloc(len_s1 * sizeof(int));
+	b = (int *) malloc(len_s2 * sizeof(int));
 	ans = _calloc(len, sizeof(int));
 	if (a == NULL || b == NULL || ans == NULL)
 		Error();
-	for (i = l1 - 1, j = 0; i >= 0; i--, j++)
+	for (i = len_s1 - 1, j = 0; i >= 0; i--, j++)
 		a[j] = s1[i] - '0';
-	for (i = l2 - 1, j = 0; i >= 0; i--, j++)
+	for (i = len_s2 - 1, j = 0; i >= 0; i--, j++)
 		b[j] = s2[i] - '0';
-	for (i = 0; i < l2; i++)
-		for (j = 0; j < l1; j++)
+	for (i = 0; i < len_s2; i++)
+		for (j = 0; j < len_s1; j++)
 			ans[i + j] += b[i] * a[j];
-	for (i = 0; i < l1 + l2; i++)
+	for (i = 0; i < len_s1 + len_s2; i++)
 	{
-		carry = ans[i] / 10;
-		ans[i] = ans[i] % 10;
+		carry = ans[i] / 10, ans[i] = ans[i] % 10;
 		ans[i + 1] = ans[i + 1] + carry;
 	}
-	for (i = l1 + l2; i >= 0; i--)
+	for (i = len_s1 + len_s2; i >= 0; i--)
 		if (ans[i] > 0)
 			break;
 	for (; i >= 0; i--)
