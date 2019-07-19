@@ -78,7 +78,7 @@ int main(int argc, char **argv)
 		len_s1++;
 	while (*(*(argv + 2) + len_s2))
 		len_s2++;
-	len = len_s1 + len_s2;
+	len = len_s1 + len_s2 + 1;
 	a = (int *) malloc(len_s1 * sizeof(int));
 	b = (int *) malloc(len_s2 * sizeof(int));
 	ans = _calloc(len, sizeof(int));
