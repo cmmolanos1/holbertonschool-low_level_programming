@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdio.h>
-#include <string.h>
 #include <stdlib.h>
 /**
  * Error - prints Error str.
@@ -54,9 +53,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 
 	for (i = 0; i < (nmemb * size); i++)
-	{
 		*(newArray + i) = 0;
-	}
 
 	return (newArray);
 }
@@ -69,20 +66,17 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 
 int main(int argc, char **argv)
 {
-	int i, j, carry, len;
-	char *s1 = argv[1];
-	char *s2 = argv[2];
-	int len_s1 = 0;
-	int len_s2 = 0;
+	int i, j, carry, len, len_s1 = 0, len_s2 = 0;
+	char *s1 = argv[1], *s2 = argv[2];
 	int *a, *b, *ans;
 
 	if (argc != 3 || allDigits(argv) != 1)
 		Error();
-	if (*s1 == '0' || *s2 == 0)
+	if (*s1 == '0' || *s2 == '0')
 		_putchar('0');
-	while (argv[1][len_s1])
+	while (*(*(argv + 1) + len_s1))
 		len_s1++;
-	while (argv[2][len_s2])
+	while (*(*(argv + 2) + len_s2))
 		len_s2++;
 	len = len_s1 + len_s2;
 	a = (int *) malloc(len_s1 * sizeof(int));
@@ -91,18 +85,18 @@ int main(int argc, char **argv)
 	if (a == NULL || b == NULL || ans == NULL)
 		Error();
 	for (i = len_s1 - 1, j = 0; i >= 0; i--, j++)
-		a[j] = s1[i] - '0';
+		*(a + j) = *(s1 + i) - '0';
 	for (i = len_s2 - 1, j = 0; i >= 0; i--, j++)
-		b[j] = s2[i] - '0';
+		*(b + j) = *(s2 + i) - '0';
 	for (i = 0; i < len_s2; i++)
 		for (j = 0; j < len_s1; j++)
-			ans[i + j] += b[i] * a[j];
+			*(ans + i + j) = *(ans + i + j) + *(b + i) * *(a + j);
 	for (i = 0; i < len_s1 + len_s2; i++)
 	{
-		carry = ans[i] / 10, ans[i] = ans[i] % 10;
-		ans[i + 1] = ans[i + 1] + carry; }
+		carry = *(ans + i) / 10, *(ans + i) = *(ans + i) % 10;
+		*(ans + i + 1) = *(ans + i + 1) + carry; }
 	for (i = len_s1 + len_s2; i >= 0; i--)
-		if (ans[i] > 0)
+		if (*(ans + i) > 0)
 			break;
 	for (; i >= 0; i--)
 		_putchar(ans[i] + '0');
