@@ -67,7 +67,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 int main(int argc, char **argv)
 {
 	int i, j, carry, len, len_s1 = 0, len_s2 = 0;
-	char *s1 = argv[1], *s2 = argv[2];
+	char *s1 = *(argv + 1), *s2 = *(argv + 2);
 	int *a, *b, *ans;
 
 	if (argc != 3 || allDigits(argv) != 1)
@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 		if (*(ans + i) > 0)
 			break;
 	for (; i >= 0; i--)
-		_putchar(ans[i] + '0');
+		_putchar(*(ans + i) + '0');
 	_putchar('\n');
 	free(a), free(b), free(ans);
 	return (0);
