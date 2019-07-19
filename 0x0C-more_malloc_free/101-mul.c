@@ -100,8 +100,7 @@ int main(int argc, char **argv)
 	for (i = 0; i < len_s1 + len_s2; i++)
 	{
 		carry = ans[i] / 10, ans[i] = ans[i] % 10;
-		ans[i + 1] = ans[i + 1] + carry;
-	}
+		ans[i + 1] = ans[i + 1] + carry; }
 	for (i = len_s1 + len_s2; i >= 0; i--)
 		if (ans[i] > 0)
 			break;
