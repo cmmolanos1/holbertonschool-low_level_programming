@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "function_pointers.h"
+#include "3-calc.h"
 /**
  * main - operates two numbers.
  * @argc: argument counter.
