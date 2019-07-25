@@ -30,7 +30,7 @@ int main(int argc, char **argv)
 		printf("%02hhx ", ((char *)main)[i]);
 		if (i == (number - 1))
 		{
-			printf("%02hhx\n", ((char *)main)[i]);
+			printf("\n");
 		}
 	}
 	return (0);
