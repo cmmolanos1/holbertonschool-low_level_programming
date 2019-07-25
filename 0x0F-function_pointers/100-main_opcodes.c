@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "3-calc.h"
 /**
  * main - generates opcodes.
  * @argc: argument counter.
@@ -9,7 +8,7 @@
  */
 int main(int argc, char **argv)
 {
-	int i, number;
+	int i, number = 0;
 
 	number = atoi(*(argv + 1));
 
@@ -19,7 +18,7 @@ int main(int argc, char **argv)
 		exit(1);
 	}
 
-	if (atoi(argv[1]) < 0)
+	if (number < 0)
 	{
 		puts("Error");
 		exit(2);
@@ -27,11 +26,13 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < number; i++)
 	{
-		printf("%02hhx ", ((char *)main)[i]);
+		printf("%02hhx", ((char *)main)[i]);
 		if (i == (number - 1))
 		{
 			printf("\n");
 		}
+		else
+			printf(" ");
 	}
 	return (0);
 }
