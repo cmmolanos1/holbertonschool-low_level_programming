@@ -10,27 +10,25 @@ int main(int argc, char **argv)
 {
 	int i, number = 0;
 
-	number = atoi(*(argv + 1));
+	number = atoi(argv[1]);
 
 	if (argc != 2)
 	{
 		puts("Error");
-		exit(1);
+		return (1);
 	}
 
 	if (number < 0)
 	{
 		puts("Error");
-		exit(2);
+		return (2);
 	}
 
 	for (i = 0; i < number; i++)
 	{
 		printf("%02hhx", ((char *)main)[i]);
 		if (i == (number - 1))
-		{
 			printf("\n");
-		}
 		else
 			printf(" ");
 	}
