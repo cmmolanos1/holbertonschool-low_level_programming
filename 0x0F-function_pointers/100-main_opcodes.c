@@ -27,10 +27,10 @@ int main(int argc, char **argv)
 	for (i = 0; i < number; i++)
 	{
 		printf("%02hhx", ((char *)main)[i]);
-		if (i == (number - 1))
-			printf("\n");
-		else
+		if (i != (number - 1))
 			printf(" ");
+		else
+			printf("\n");
 	}
 	return (0);
 }
