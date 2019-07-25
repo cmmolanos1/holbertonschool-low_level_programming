@@ -26,11 +26,11 @@ int main(int argc, char **argv)
 
 	for (i = 0; i < number; i++)
 	{
-		printf("%02hhx", ((char *)main)[i]);
-		if (i != (number - 1))
-			printf(" ");
-		else
+		printf("%02x", ((unsigned char *)main)[i]);
+		if (i == (number - 1))
 			printf("\n");
+		else
+			printf(" ");
 	}
 	return (0);
 }
