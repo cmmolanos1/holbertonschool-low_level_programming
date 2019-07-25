@@ -14,14 +14,14 @@ int main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		puts("Error");
-		return (1);
+		printf("Error\n");
+		exit(1);
 	}
 
 	if (number < 0)
 	{
-		puts("Error");
-		return (2);
+		printf("Error\n");
+		exit(2);
 	}
 
 	for (i = 0; i < number; i++)
