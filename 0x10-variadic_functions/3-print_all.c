@@ -36,11 +36,8 @@ void print_all(const char * const format, ...)
 				printf("%s", str);
 				break;
 			}
-			else
-			{
-				printf("(nil)");
-				break;
-			}
+			printf("(nil)");
+			break;
 		default:
 			flag = 1;
 			i++;
