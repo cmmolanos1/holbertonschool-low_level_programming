@@ -9,29 +9,31 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0;
+	unsigned int flag, i = 0;
+	char *str;
 	va_list arguments;
-	char *s;
 
 	va_start(arguments, format);
 	while (format && format[i] != '\0')
 	{
+		if (i != 0 && flag == 0)
+			printf(", ");
 		switch (format[i])
 		{
 		case 'c':
-			printf("%c",  va_arg(arguments, int));
+			printf("%c", va_arg(arguments, int));
 			break;
 		case 'i':
-			printf("%i",  va_arg(arguments, int));
+			printf("%i", va_arg(arguments, int));
 			break;
 		case 'f':
-			printf("%f",  va_arg(arguments, double));
+			printf("%f", va_arg(arguments, double));
 			break;
 		case 's':
-			s = va_arg(arguments, char*);
-			if (s)
+			str = va_arg(arguments, char *);
+			if (str)
 			{
-				printf("%s", s);
+				printf("%s", str);
 				break;
 			}
 			else
@@ -40,13 +42,13 @@ void print_all(const char * const format, ...)
 				break;
 			}
 		default:
+			flag = 1;
 			i++;
 			continue;
 		}
-		if (format[i + 1] != '\0')
-			printf(", ");
+		flag = 0;
 		i++;
 	}
-	printf("\n");
 	va_end(arguments);
+	printf("\n");
 }
