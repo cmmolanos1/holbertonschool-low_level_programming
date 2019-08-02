@@ -1,5 +1,4 @@
 #include "lists.h"
-#include <stdlib.h>
 /**
  * free_list - free memory of all list.
  * @head: pointer to head in fucntion
