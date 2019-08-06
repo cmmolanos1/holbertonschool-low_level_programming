@@ -10,7 +10,7 @@ int pop_listint(listint_t **head)
 	int a;
 	/*Ask if the head was not imput*/
 	if (head == NULL || *head == NULL)
-		return (-1);
+		return (0);
 
 	new_head = (*head)->next;
 	a = (*head)->n;
