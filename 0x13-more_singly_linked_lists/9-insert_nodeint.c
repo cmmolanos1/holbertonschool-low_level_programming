@@ -8,36 +8,41 @@
  */
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-	unsigned int counter = 0, nodes;
-	listint_t *temp = *head;
-	listint_t *new_node, *after_temp;
+	unsigned int nodes;
+	listint_t *node_index = *head;
+	listint_t *new_node, *node_after;
 
 	if (head == NULL || *head == NULL)/*Ask if there is not input*/
 		return (NULL);
 
-	for (nodes = 0; temp != NULL; nodes++)/*Count the num of nodes*/
-		temp = temp->next;
+	for (nodes = 0; node_index != NULL; nodes++)/*Count the num of nodes*/
+		node_index = node_index->next;
 	if (idx > (nodes + 1))/*Allows insert until after-last node*/
 		return (NULL);
 
-	temp = *head;
+	node_index = *head;
 
 	new_node = malloc(sizeof(listint_t));/*allocate and fill the new node*/
 	if (new_node == NULL)
 		return (NULL);
 	new_node->n = n;
 
-	while (counter < idx)
+	if (idx == 0)
 	{
-		if (counter == idx - 1)
-		{
-			after_temp = temp->next;/*Assign the aux ptr for join the nodes*/
-			temp->next = new_node;
-			new_node->next = after_temp;
-			return (new_node);
-		}
-		temp = temp->next;
-		counter++;
+		new_node->next = *head;
+		*head = new_node;
+		return (new_node);
 	}
-	return (NULL);
+	else
+	{
+		node_after = *head;
+		for (nodes = 0; nodes < (idx - 1); nodes++)
+			node_index = node_index->next;
+		for (nodes = 0; nodes < idx; nodes++)
+			node_after = node_after->next;
+		node_index->next = new_node;
+		new_node->next = node_after;
+		return (new_node);
+
+	}
 }
