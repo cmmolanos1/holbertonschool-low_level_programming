@@ -30,7 +30,7 @@ listint_t *find_listint_loop(listint_t *head)
 	while (tortoise != hare)
 	{
 		tortoise = tortoise->next;
-		hare = hare->next
+		hare = hare->next;
 	}
 	return (hare);
 }
