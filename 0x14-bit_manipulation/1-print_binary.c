@@ -15,7 +15,7 @@ void print_binary(unsigned long int n)
 	}
 	else
 	{
-		for (i = 63; i >= 0; i--)
+		for (i = 63; i >= 0; i--)/*Ignoring left-zeros*/
 		{
 			mask = 1 << i;
 			digit = (n & mask) >> i;
@@ -24,8 +24,8 @@ void print_binary(unsigned long int n)
 		}
 		for (; i >= 0; i--)
 		{
-			mask = 1 << i;
-			digit = (n & mask) >> i;
+			mask = 1 << i;/*Creating a mask for extract the digit*/
+			digit = (n & mask) >> i;/*Extract the digit and push to 0 or 1*/
 			_putchar(digit + '0');
 		}
 	}
