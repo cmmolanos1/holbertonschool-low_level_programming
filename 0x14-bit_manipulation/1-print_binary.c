@@ -6,7 +6,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i, digit, j = 0;
+	int i, j = 0;
 	unsigned long int temp, mask = 0;
 
 	if (n == 0)
@@ -19,8 +19,10 @@ void print_binary(unsigned long int n)
 	for (i = j - 1; i >= 0; i--)
 	{
 		mask = 1 << i;/*Creating a mask for extract the digit*/
-		digit = (n & mask) >> i;/*Extract the digit and push to 0 or 1*/
-		_putchar(digit + '0');
+		if ((n & mask) != 0)
+			_putchar('1');
+		else
+			_putchar('0');
 	}
 }
 
