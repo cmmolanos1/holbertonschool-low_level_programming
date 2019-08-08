@@ -19,5 +19,5 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 		if ((bit_diff & mask) != 0)
 			differences = differences + 1;
 	}
-	return (differences / 2);
+	return (differences * 0.5);
 }
