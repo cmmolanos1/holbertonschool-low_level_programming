@@ -6,19 +6,18 @@
  */
 void print_binary(unsigned long int n)
 {
-	int i, digit;
-	unsigned long int mask = 0;
+	int i, digit, j = 0;
+	unsigned long int temp, mask = 0;
 
 	if (n == 0)
 		_putchar('0');
-	for (i = 63; i >= 0; i--)/*Ignoring left-zeros*/
+	temp = n;
+	while (temp != 0)
 	{
-		mask = 1 << i;
-		digit = (n & mask) >> i;
-		if (digit == 1)
-			break;
+		temp = temp >> 1;
+		j++;
 	}
-	for (; i >= 0; i--)
+	for (i = j - 1; i >= 0; i--)
 	{
 		mask = 1 << i;/*Creating a mask for extract the digit*/
 		digit = (n & mask) >> i;/*Extract the digit and push to 0 or 1*/
