@@ -6,7 +6,7 @@
  */
 unsigned int binary_to_uint(const char *b)
 {
-	int i, j;
+	int i;
 	unsigned int num = 0;
 
 	if (*b == 0)
@@ -18,11 +18,11 @@ unsigned int binary_to_uint(const char *b)
 			return (0);
 	}
 
-	for (j = 0; j <= i; j++)
+	for (i = 0; *(b + i) != '\0'; i++)
 	{
-		if (*(b + j)  == '1')
+		if (*(b + i)  == '1')
 			num = (num << 1) | 1;/*insert 1 and make displacement*/
-		else if (*(b + j) == '0')
+		else if (*(b + i) == '0')
 			num <<= 1; /*only displace*/
 	}
 
