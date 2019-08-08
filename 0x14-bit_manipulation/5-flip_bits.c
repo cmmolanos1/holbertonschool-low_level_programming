@@ -8,7 +8,7 @@
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned long int bit_diff, mask = 0;
-	int i, digit;
+	int i;
 	unsigned int differences = 0;
 
 	bit_diff = n ^ m;/*1 if bit_n != bit_m (XOR)*/
@@ -16,9 +16,8 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 	for (i = 63; i >= 0; i--)
 	{
 		mask = 1 << i;/*Creating a mask for extract the digit*/
-		digit = (bit_diff & mask) >> i;/*Extract the digit and push to 0 or 1*/
-		if (digit == 1)
-			differences++;
+		if ((bit_diff & mask) != 0)
+			differences = differences + 1;
 	}
-	return (differences);
+	return (differences / 2);
 }
