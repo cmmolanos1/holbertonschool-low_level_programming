@@ -14,16 +14,14 @@ unsigned int binary_to_uint(const char *b)
 
 	for (i = 0; *(b + i) != '\0'; i++)
 	{
-		if (*(b + i) == '0' || *(b + i) == '1')
-			;
-		else
+		if (*(b + i) != '0' && *(b + i) != '1')
 			return (0);
 	}
 
 	for (j = 0; j <= i; j++)
 	{
 		if (*(b + j)  == '1')
-			num = (num << 1) + 1;/*insert 1 and make displacement*/
+			num = (num << 1) | 1;/*insert 1 and make displacement*/
 		else if (*(b + j) == '0')
 			num <<= 1; /*only displace*/
 	}
