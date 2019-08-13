@@ -7,18 +7,16 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	/*Allocate depends of num letters*/
 	char *print_field;
 	int file, read_file;
 
 	if (!filename)
 		return (0);
 
-	print_field = malloc((letters + 1) * sizeof(char));
+	/*Create the buffer print_field*/
+	print_field = malloc(letters * sizeof(char));
 	if (print_field == NULL)
 		return (0);
-
-	*(print_field + letters) = '\0';
 
 	/*Open the file*/
 	file = open(filename, O_RDONLY);
@@ -27,7 +25,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 
 	/*Read the file and save in buffer*/
 	read_file = read(file, print_field, letters);
-
+	/*Write as standard output*/
 	write(STDOUT_FILENO, print_field, read_file);
 
 	close(file);
