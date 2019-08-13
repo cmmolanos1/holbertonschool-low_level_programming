@@ -8,7 +8,8 @@
  */
 int main(int argc, char **argv)
 {
-	int file_from, file_to, size;
+	int file_from, file_to;
+	unsigned long int size;
 	char *buffer;
 
 	if (argc != 3)
