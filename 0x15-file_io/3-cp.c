@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 		exit(99);
 	}
 	buffer = malloc(1024);
-	size = read(file_from, buffer, sizeof(buffer));
+	size = read(file_from, buffer, 1024);
 	write(file_to, buffer, size);
 	close(file_from);
 	close(file_to);
