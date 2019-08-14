@@ -23,24 +23,20 @@ int main(int argc, char **argv)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[0]);
 		exit(98);
 	}
-	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
+	file_to = open(argv[2], O_WRONLY | O_CREAT | O_TRUNC | O_APPEND, 0664);
 	if (file_to == -1)
 	{
-		close(file_from);
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[1]);
 		exit(99);
 	}
 	buffer = malloc(1024);
-
 	while ((size = read(file_from, buffer, sizeof(buffer))) != 0)
 		write(file_to, buffer, size);
-	close(file_from);
 	if (close(file_from) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_from);
 		exit(99);
 	}
-	close(file_to);
 	if (close(file_to) == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", file_to);
