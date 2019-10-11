@@ -18,6 +18,9 @@ hash_table_t *hash_table_create(unsigned long int size)
 	if (hash_table == NULL)
 		return (NULL);
 
+	/*Assign the size*/
+	hash_table->size = size;
+
 	/*Allocate pointers to the head nodes*/
 	hash_table->array = malloc(sizeof(hash_node_t) * size);
 	if (hash_table->array == NULL)
@@ -31,9 +34,6 @@ hash_table_t *hash_table_create(unsigned long int size)
 	{
 		hash_table->array[i] = NULL;
 	}
-
-	/*Assign the size*/
-	hash_table->size = size;
 
 	return (hash_table);
 }
