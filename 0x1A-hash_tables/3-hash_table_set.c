@@ -12,14 +12,12 @@ hash_node_t *new_node(const char *key, const char *value)
 	nnode = malloc(sizeof(hash_node_t));
 	if (nnode == NULL)
 		return (NULL);
-
 	nnode->key = strdup(key);
 	if (nnode->key == NULL)
 	{
 		free(nnode);
 		return (NULL);
 	}
-
 	nnode->value = strdup(value);
 	if (nnode->value == NULL)
 	{
@@ -27,9 +25,7 @@ hash_node_t *new_node(const char *key, const char *value)
 		free(nnode);
 		return (NULL);
 	}
-
 	nnode->next = NULL;
-
 	return (nnode);
 }
 
@@ -55,11 +51,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		last = next;
 		next = next->next;
 	}
-
 	if (next != NULL && next->key != NULL && strcmp(key, next->key) == 0)
 	{
-		free(next->value);
-		next->value = strdup(value);
+		newpair = new_node(key, value);
+		if (newpair == NULL)
+			return (0);
+		next = ht->array[index];
+		newpair->next = next;
+		ht->array[index] = newpair;
 	}
 	else
 	{
@@ -69,17 +68,14 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 		if (next == ht->array[index])
 		{
 			newpair->next = next;
-			ht->array[index] = newpair;
-		}
+			ht->array[index] = newpair; }
 		else if (next == NULL)
 		{
-			last->next = newpair;
-		}
+			last->next = newpair; }
 		else
 		{
 			newpair->next = next;
-			last->next = newpair;
-		}
+			last->next = newpair; }
 	}
 	return (1);
 }
