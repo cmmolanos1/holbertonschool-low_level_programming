@@ -8,10 +8,10 @@
  * @size: array's size
  * Return: nothing
  */
-size_t partition(int *array, int low, int high, size_t size)
+size_t partition(int *array, ssize_t low, ssize_t high, size_t size)
 {
 	int pivot = array[low], swap;
-	int i = low - 1, j = high + 1;
+	ssize_t i = low - 1, j = high + 1;
 
 	while (1)
 	{
@@ -38,9 +38,9 @@ size_t partition(int *array, int low, int high, size_t size)
  * @size: array's size
  * Return: nothing
  */
-void quicksort(int *array, int low, int high, size_t size)
+void quicksort(int *array, ssize_t low, ssize_t high, size_t size)
 {
-	int p;
+	ssize_t p;
 
 	if (low < high)
 	{
