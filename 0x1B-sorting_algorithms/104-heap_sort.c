@@ -7,9 +7,9 @@
  * @i: root node
  * Return: nothing
  */
-void heapify(int *array, size_t n, size_t i, size_t size)
+void heapify(int *array, int n, int i, size_t size)
 {
-	size_t largest, left, right;
+	int largest, left, right;
 	int swap;
 
 	largest = i;
@@ -50,7 +50,8 @@ void heap_sort(int *array, size_t size)
 		swap = array[i];
 		array[i] = array[0];
 		array[0] = swap;
-		print_array(array, size);
+		if (i != 0)
+			print_array(array, size);
 		heapify(array, i, 0, size);
 	}
 }
