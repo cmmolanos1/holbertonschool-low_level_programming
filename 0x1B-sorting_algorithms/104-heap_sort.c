@@ -38,20 +38,20 @@ void heapify(int *array, size_t n, size_t i, size_t size)
  */
 void heap_sort(int *array, size_t size)
 {
-	size_t i;
+	register int i;
 	int swap;
 
 	if (!array || size < 2)
 		return;
-	for (i = (size - 2) / 2 + 1; i > 0; i--)
-		heapify(array, size, i - 1, size);
-	for (i = size; i > 0; i--)
+	for (i = size / 2 - 1; i >= 0; i--)
+		heapify(array, size, i, size);
+	for (i = size - 1; i >= 0; i--)
 	{
-		swap = array[i - 1];
-		array[i - 1] = array[0];
+		swap = array[i];
+		array[i] = array[0];
 		array[0] = swap;
 		print_array(array, size);
-		heapify(array, i - 1, 0, size);
+		heapify(array, i, 0, size);
 	}
 }
 
