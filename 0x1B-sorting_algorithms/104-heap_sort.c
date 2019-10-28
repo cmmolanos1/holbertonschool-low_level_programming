@@ -50,7 +50,8 @@ void heap_sort(int *array, size_t size)
 		swap = array[i];
 		array[i] = array[0];
 		array[0] = swap;
-		print_array(array, size);
+		if (i != 0)
+			print_array(array, size);
 		heapify(array, i, 0, size);
 	}
 }
