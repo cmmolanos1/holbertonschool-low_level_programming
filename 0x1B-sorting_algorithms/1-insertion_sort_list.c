@@ -32,6 +32,7 @@ void insertion_sort_list(listint_t **list)
 	while (i)
 	{
 		j = i;
+		i = i->next;
 		while (j && j->prev)
 		{
 			if (j->prev->n > j->n)
@@ -41,8 +42,8 @@ void insertion_sort_list(listint_t **list)
 					*list = j;
 				print_list((const listint_t *)*list);
 			}
-			j = j->prev;
+			else
+				j = j->prev;
 		}
-		i = i->next;
 	}
 }
