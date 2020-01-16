@@ -1,25 +1,45 @@
 #include "search_algos.h"
 /**
- * print_array - prints modified array.
- * @array: array to print
- * @l: left-index
- * @r: right-index
- * Return: nothing
+ * search - permorms binary searching, but shows the first ocurrence.
+ * @array: array to search in
+ * @left: left index
+ * @right: right index
+ * @value: target value to be searched
+ * Return: if target located the 1st index, otherwise -1
  */
-void print_array(int *array, size_t l, size_t r)
+int search(int *array, size_t left, size_t right, int value)
 {
+	int m;
 	size_t i;
 
-	printf("Searching in array: ");
-	for (i = l; i <= r; i++)
-	{
-		if (i < r)
-			printf("%i, ", array[i]);
-		else
-			printf("%i\n", array[i]);
-	}
-}
+	if (array == NULL)
+		return (-1);
 
+	if (left <= right)
+	{
+		m = (left + right) / 2;
+
+		printf("Searching in array: ");
+		for (i = left; i <= right; i++)
+		{
+			if (i < right)
+				printf("%i, ", array[i]);
+			else
+				printf("%i\n", array[i]);
+		}
+
+		if ((size_t)m == left && array[m] == value)
+			return (m);
+		else if (array[m] == value)
+			return (search(array, left, m, value));
+		else if (array[m] < value)
+			return (search(array, m + 1, right, value));
+		else if (array[m] > value)
+			return (search(array, left, m - 1, value));
+	}
+
+	return (-1);
+}
 /**
  * advanced_binary - permorms binary searching, but shows the first ocurrence.
  * @array: array to search in
@@ -31,24 +51,9 @@ int advanced_binary(int *array, size_t size, int value)
 {
 	size_t left = 0;
 	size_t right = size - 1;
-	int m;
 
 	if (array == NULL)
 		return (-1);
-	while (left <= right)
-	{
-		m = (left + right) / 2;
-		print_array(array, left, right);
 
-		if (array[m] < value)
-			left = m + 1;
-		else if (array[m] > value)
-			right = m - 1;
-		else if ((size_t)m == left)
-			return (m);
-		else
-			return (advanced_binary(array, m + 1, value));
-	}
-
-	return (-1);
+	return (search(array, left, right, value));
 }
